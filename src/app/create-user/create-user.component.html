@@ -1,0 +1,13 @@
+<div>
+    <form method="post" [formGroup]="User" (ngSubmit)="DoCadastro()">
+        <input type="text" placeholder="nome de usuario" formControlName="username" required/>
+        <input type="password" placeholder="senha" formControlName="password" required/>
+        <input type="text" placeholder="primeiro nome" formControlName="first_name" required/>
+        <input type="text" placeholder="ultimo nome" formControlName="last_name" required/>
+        <input type="text" placeholder="email" formControlName="email" required/>
+        <input type="file" placeholder="foto de perfil" (change)="Doevent($event)" required/>
+        <input type="text" placeholder="numero da casa" formControlName="numcasa" required/>
+        <input type="text" placeholder="Cep" formControlName="cep" required/>
+        <button type="submit" class="btn btn-secondary">Cadastre-me</button>
+    </form>
+</div>
