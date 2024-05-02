@@ -9,7 +9,7 @@ export class PrincipalService {
   perf?:any;
   str:string = 'http://localhost:8080/home/Produtos';
   constructor(private cliente:HttpClient) {}
-  chama():any{
-    
+  chama():Observable<any>{
+    return new Observable;
   }
 }

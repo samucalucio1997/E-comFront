@@ -8,6 +8,6 @@ import { PrincipalService } from './principal.service';
 })
 export class AppComponent{  
   
-  
+  constructor(private srv:PrincipalService) {}
     
 }
