@@ -7,9 +7,13 @@ import { Observable } from 'rxjs';
 })
 export class PrincipalService {
   perf?:any;
-  str:string = 'http://localhost:8080/home/Produtos';
+  str:string = 'http://localhost:8080/produto/produtos';
+  lista = [];
   constructor(private cliente:HttpClient) {}
+  
   chama():Observable<any>{
-    return new Observable;
+    //console.log(this.cliente.get(this.str));
+    return this.cliente.get(this.str);
+    //new Observable();console.log(this.lista.length);
   }
 }
