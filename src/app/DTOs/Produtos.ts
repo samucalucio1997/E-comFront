@@ -1,5 +1,6 @@
 export interface produtos{
-    imgs:ArrayBuffer;
+    id:number
+    imgs:string;
     nome:string;
     qtd:number;
     precoUni:number;

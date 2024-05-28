@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PrincipalService } from './principal.service';
 import { produtos } from './DTOs/Produtos';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,32 +11,33 @@ import { produtos } from './DTOs/Produtos';
 export class AppComponent implements OnInit{  
   
   objs?: produtos[]=[];
-  constructor(private srv:PrincipalService) {}
+  constructor(private srv:PrincipalService,private rout:Router){}
  
  
   ngOnInit(): void {
       this.srv.chama().forEach(
         (res:any) => {
-          const file = new FileReader()
           for (let index = 0; index < res.length; index++) {
-            const resp:Blob = res[index]['imgs'][0];
-            console.log(resp);
             const itempro:produtos = {
-              imgs: new ArrayBuffer(10), 
+              id: res[index]['produto']['id'],
+              imgs: '', 
               nome: res[index]['produto']['nome'],
               qtd: res[index]['produto']['qtd'],
               precoUni: res[index]['produto']['precoUni'],
               categoria: res[index]['produto']['categoria']
             };
-            file.onload = (e) => {
-                itempro.imgs = e.target?.result as ArrayBuffer;
-                this.objs?.push(itempro);
-            }
-            file.readAsDataURL(resp);
+            let im:string = res[index]['imgs'][0];
+            itempro.imgs = `data:image/png;base64, ${im}`;
+            this.objs?.push(itempro);
           };
-
         }
       )
+  }
+
+  detalhar(char:any):void{
+    console.log('funfou legal '+ char);
+    //sessionStorage.setItem('id_produto',char);
+    this.rout.navigate(['/detalhar_produto',{id:char}]);
   }
   
  
