@@ -9,6 +9,14 @@
         <label for="exampleFormControlInput1" class="form-label">digite sua senha:</label>
         <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="senha" formControlName="senha" required/>
     </div>
+
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" [checked]="this.login.get('checkon')?.value" formControlName="checkon" id="flexCheckDefault" required>
+        <label class="form-check-label" for="flexCheckDefault">
+          Politica de privacidade de dados.
+        </label>
+    </div>
+
     <button type="submit" class="btn btn-outline-secondary">Entrar</button>
     </form>
 </div>

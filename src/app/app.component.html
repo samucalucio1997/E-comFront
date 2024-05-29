@@ -1,11 +1,3 @@
 <app-header></app-header>
 <hr>
-<div *ngFor="let item of objs" class="card" style="width: 18rem;">
-    <img *ngIf="item.imgs" class="card-img-top" [src]="item.imgs" alt="Imagem de capa do card">
-    <div class="card-body">
-        <h5 class="card-title">{{item.nome}}</h5>
-        <p class="card-text">{{item.precoUni}} à vista ou 6x de {{item.precoUni/6}}</p>
-        <a href="#" (click)="detalhar(item.id)" class="btn btn-primary">Visitar</a>
-    </div>
-</div>
 <router-outlet></router-outlet>

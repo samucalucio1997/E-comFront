@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Login } from './login';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -15,6 +15,9 @@ export class ApiServiceService {
 
   fazerLogin(login: Login):void{
     const forData:FormData = new FormData();
+    const params:HttpParams = new HttpParams;
+    params.append('username',String(login.login));
+    
     forData.append('username',String(login.login));
     forData.append('password', String(login.password))
     this.httpclient.post(this.url,forData).subscribe((resp:any) => {

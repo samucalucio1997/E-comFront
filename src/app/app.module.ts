@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { CreateUserComponent } from "./create-user/create-user.component";
 import { CommonModule } from "@angular/common";
+import { ListarProdutoComponent } from "./listar-produto/listar-produto.component";
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { CommonModule } from "@angular/common";
         AppComponent,
         LoginComponent,
         HeaderComponent,
+        ListarProdutoComponent,
         CreateUserComponent
     ],
     imports:[
