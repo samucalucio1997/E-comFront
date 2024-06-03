@@ -11,7 +11,7 @@ const routes: Routes=[
   {path:'createUser', component:CreateUserComponent},
   {path:'header', component: HeaderComponent},
   {path: 'detalhar-produto',component: DetalharProdutoComponent},
-  {path:'', component:ListarProdutoComponent}
+  {path:'', component: ListarProdutoComponent}
 ];
 
 @NgModule({

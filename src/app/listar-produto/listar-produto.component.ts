@@ -34,9 +34,8 @@ export class ListarProdutoComponent {
       )
   }
 
-  detalhar(char:any):void{
-    console.log('funfou legal '+ char);
-    //sessionStorage.setItem('id_produto',char);
-    this.rout.navigate(['/detalhar-produto',{id:char}]);
+  detalhar(id:number):void{
+    
+    this.rout.navigate(['/detalhar-produto',{state: { id: id }}]);
   }
 }
