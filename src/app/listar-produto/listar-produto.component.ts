@@ -17,25 +17,27 @@ export class ListarProdutoComponent {
   ngOnInit(): void {
       this.srv.chama().forEach(
         (res:any) => {
-          for (let index = 0; index < res.length; index++) {
-            const itempro:produtos = {
-              id: res[index]['produto']['id'],
-              imgs: '', 
-              nome: res[index]['produto']['nome'],
-              qtd: res[index]['produto']['qtd'],
-              precoUni: res[index]['produto']['precoUni'],
-              categoria: res[index]['produto']['categoria']
-            };
-            let im:string = res[index]['imgs'][0];
-            itempro.imgs = `data:image/png;base64, ${im}`;
-            this.objs?.push(itempro);
-          };
+          let produtos: produtos[];
+          if (typeof res === 'string') {
+            produtos = JSON.parse(res);
+          } else {
+            produtos = res;
+          }
+
+          produtos.forEach((json: produtos) => {
+            var img:string[] = [];
+            json.imgs.forEach((n: string) => {
+              img.push(`data:image/png;base64,${n}`);
+            });
+            json.imgs = img;
+            this.objs?.push(json);
+          })
+
         }
-      )
+      );
   }
 
   detalhar(id:number):void{
-    
     this.rout.navigate(['/detalhar-produto',{state: { id: id }}]);
   }
 }

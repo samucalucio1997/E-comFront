@@ -1,6 +1,5 @@
-<p>detalhar-produto works!</p>
-<div class="">
-    <img src="" alt="">
-
+<div *ngFor="let img of produto?.imgs" class="">
+    <img [src]="'data:image/png;base64,'+img" alt="">
 </div>
+<p>{{this.produto?.produto?.nome}}</p>
 
