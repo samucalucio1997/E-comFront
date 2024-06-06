@@ -9,6 +9,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { CreateUserComponent } from "./create-user/create-user.component";
 import { CommonModule } from "@angular/common";
 import { ListarProdutoComponent } from "./listar-produto/listar-produto.component";
+import { DetalharProdutoComponent } from "./detalhar-produto/detalhar-produto.component";
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { ListarProdutoComponent } from "./listar-produto/listar-produto.componen
         LoginComponent,
         HeaderComponent,
         ListarProdutoComponent,
+        DetalharProdutoComponent,
         CreateUserComponent
     ],
     imports:[

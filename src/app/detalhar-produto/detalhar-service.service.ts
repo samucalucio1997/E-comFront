@@ -12,7 +12,7 @@ export class DetalharServiceService {
   constructor(private http: HttpClient) { }
 
   consultaApi(id:number):Observable<any>{
-    return this.http.get(this.data+`${id}`);
+    return this.http.get<produtos>(this.data+`${id}`);
   }
 
 

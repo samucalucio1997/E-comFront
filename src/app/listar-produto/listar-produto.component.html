@@ -5,7 +5,7 @@
         <p class="card-text">{{item.produto.precoUni}} à vista ou 6x de {{item.produto.precoUni/6}}</p>
         <a href="#" 
         [routerLink]="['detalhar-produto']"
-        [queryParams]="{ id:item.produto.id}"
+        [queryParams]="{ id:item.produto.id }"
         class="btn btn-primary">Visitar</a>
     </div>
 </div>

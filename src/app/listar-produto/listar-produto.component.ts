@@ -28,7 +28,7 @@ export class ListarProdutoComponent {
             var img:string[] = [];
             json.imgs.forEach((n: string) => {
               img.push(`data:image/png;base64,${n}`);
-            });
+            });   
             json.imgs = img;
             this.objs?.push(json);
           })
