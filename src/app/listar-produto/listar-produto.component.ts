@@ -15,24 +15,9 @@ export class ListarProdutoComponent {
  
  
   ngOnInit(): void {
-      this.srv.chama().forEach(
-        (res:any) => {
-          let produtos: produtos[];
-          if (typeof res === 'string') {
-            produtos = JSON.parse(res);
-          } else {
-            produtos = res;
-          }
-
-          produtos.forEach((json: produtos) => {
-            var img:string[] = [];
-            json.imgs.forEach((n: string) => {
-              img.push(`data:image/png;base64,${n}`);
-            });   
-            json.imgs = img;
-            this.objs?.push(json);
-          })
-
+      this.srv.chama().subscribe(
+        (res:produtos[]) => {
+            this.objs = res;
         }
       );
   }

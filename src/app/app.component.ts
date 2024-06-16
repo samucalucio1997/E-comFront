@@ -8,15 +8,9 @@ import { Route, Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit{  
+export class AppComponent {  
   
-  objs?: produtos[]=[];
-  constructor(private srv:PrincipalService,private rout:Router){}
  
- 
-  ngOnInit(): void {
-     
-  }
 
   
   

@@ -35,5 +35,9 @@ export class DetalharProdutoComponent implements OnInit{
       }
     );
   }
+
+  pagamentoProduto(){
+    
+  }
   
 }

@@ -1,6 +1,8 @@
-<div *ngFor="let img of this.lisimg">
-    <img [src]="img" alt="" height="100px" width="100px">
+<div class="principal">
+    <div *ngFor="let img of this.lisimg">
+        <img [src]="img" alt="" height="100px" width="100px">
+    </div>
+    <p>{{this.produto?.produto?.nome}}</p>
+    <button type="submit" class="btn btn-primary">{{this.produto?.produto?.precoUni}}</button>
 </div>
-<p>{{this.produto?.produto?.nome}}</p>
-<button type="submit" >{{this.produto?.produto?.precoUni}}</button>
 

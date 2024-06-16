@@ -1,11 +1,12 @@
 <div *ngFor="let item of objs" class="card" style="width: 18rem;">
-    <img *ngIf="item.imgs" class="card-img-top" [src]="item.imgs" alt="Imagem de capa do card">
+    <img *ngIf="item.imgs.length>0" class="card-img-top" [src]="'data:image/png;base64,'+item.imgs[0]"
+        alt="Imagem de capa do card">
     <div class="card-body">
         <h5 class="card-title">{{item.produto.nome}}</h5>
         <p class="card-text">{{item.produto.precoUni}} à vista ou 6x de {{item.produto.precoUni/6}}</p>
-        <a href="#" 
-        [routerLink]="['detalhar-produto']"
-        [queryParams]="{ id:item.produto.id }"
-        class="btn btn-primary">Visitar</a>
+
+        <a href="#" [routerLink]="['detalhar-produto']" [queryParams]="{ id:item.produto.id }"
+            class="btn btn-primary">Comprar</a>
+
     </div>
 </div>

@@ -10,6 +10,7 @@ import { CreateUserComponent } from "./create-user/create-user.component";
 import { CommonModule } from "@angular/common";
 import { ListarProdutoComponent } from "./listar-produto/listar-produto.component";
 import { DetalharProdutoComponent } from "./detalhar-produto/detalhar-produto.component";
+import { userguardGuard } from "./guard/userguard.guard";
 
 
 @NgModule({
