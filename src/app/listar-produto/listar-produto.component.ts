@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { PrincipalService } from '../principal.service';
 import { Router } from '@angular/router';
 import { produtos } from '../DTOs/Produtos';
+import { ListarProdutoServiceService } from './listar-produto-service.service';
+import { produto } from '../DTOs/Produto';
 
 @Component({
   selector: 'app-listar-produto',
@@ -11,7 +12,8 @@ import { produtos } from '../DTOs/Produtos';
 })
 export class ListarProdutoComponent {
   objs?: produtos[]=[];
-  constructor(private srv:PrincipalService,private rout:Router){}
+  produto?: produtos;
+  constructor(private srv:ListarProdutoServiceService,private rout:Router){}
  
  
   ngOnInit(): void {
@@ -22,7 +24,9 @@ export class ListarProdutoComponent {
       );
   }
 
-  detalhar(id:number):void{
-    this.rout.navigate(['/detalhar-produto',{state: { id: id }}]);
+  detalhar(produto:produtos):void{
+    const images:string[]=[];
+    produto.imgs.map(res => images.push(`data:image/png;base64,${res}`));
+    this.rout.navigateByUrl('/detalhar-produto',{ state: {produto: produto.produto, img: images} });
   }
 }

@@ -1,11 +1,37 @@
+<h1 class="bd-title mb-0 p-5">Cadastro</h1>
 <div>
     <form method="post" [formGroup]="User" (ngSubmit)="DoCadastro()">
-        <input type="text" placeholder="nome de usuario" formControlName="username" required/>
-        <input type="password" placeholder="senha" formControlName="password" required/>
+        <div class="mb-3 pl-5 pr-5 pb-0 file-input-container">
+            <label class="image-container"><img src="../../assets/icone.jpeg" height="300px" width="300px"/></label>
+            <input type="file" class="file-input" placeholder="foto de perfil" (change)="Doevent($event)" formControlName="file" required/>
+        </div>
+        <div class="mb-3 pl-5 pr-5 pb-0">
+            <label for="exampleFormControlInput1" class="form-label">Nome de usuário</label>
+            <input type="email" autofocus="autofocus" class="form-control" id="exampleFormControlInput1" formControlName="username" placeholder="nome de usuario" required>
+        </div>
+        <div class="mb-3 pl-5 pr-5 pt-0">
+            <label for="exampleFormControlInput1" class="form-label">Senha</label>
+            <input type="password" autofocus="autofocus" class="form-control" id="exampleFormControlInput1" formControlName="password" placeholder="senha" required>
+        </div>
+        <div class="mb-3 pl-5 pr-5 pt-0">
+            <label for="exampleFormControlInput1" class="form-label">Email</label>
+            <input type="email" autofocus="autofocus" class="form-control" id="exampleFormControlInput1" formControlName="email" placeholder="nomeusuario@email.com" required>
+        </div>
+        <div class="mb-3 pl-5 pr-5 pt-0">
+            <label for="exampleFormControlInput1" class="form-label">Cep</label>
+            <input type="email" autofocus="autofocus" class="form-control" id="exampleFormControlInput1" formControlName="cep" placeholder="001111165" required>
+              <div *ngIf="rua">
+                  <input type="text" [readOnly]="this.rua" [value]="this.rua" placeholder="rua">
+                  <input type="text"[readOnly]="this.estado" [value]="this.estado" placeholder="estado">
+                  <input type="text" [readOnly]="this.cidade" [value]="this.cidade">
+              </div>
+        </div>
+        <div class="mb-3 pl-5 pr-5 pt-0">
+            <label for="exampleFormControlInput1" class="form-label">Primeiro nome</label>
+            <input type="email" autofocus="autofocus" class="form-control" id="exampleFormControlInput1" formControlName="first_name" placeholder="Luciano" required>
+        </div>
         <input type="text" placeholder="primeiro nome" formControlName="first_name" required/>
         <input type="text" placeholder="ultimo nome" formControlName="last_name" required/>
-        <input type="text" placeholder="email" formControlName="email" required/>
-        <input type="file" placeholder="foto de perfil" (change)="Doevent($event)" required/>
         <input type="text" placeholder="numero da casa" formControlName="numcasa" required/>
         <input type="text" placeholder="Cep" formControlName="cep" required/>
         <button type="submit" class="btn btn-secondary">Cadastre-me</button>

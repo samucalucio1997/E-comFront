@@ -3,10 +3,10 @@
         alt="Imagem de capa do card">
     <div class="card-body">
         <h5 class="card-title">{{item.produto.nome}}</h5>
-        <p class="card-text">{{item.produto.precoUni}} à vista ou 6x de {{item.produto.precoUni/6}}</p>
+        <p class="card-text">R$ {{item.produto.precoUni}} à vista ou 6x de R$ {{item.produto.precoUni/3 | number:'1.2-2'}}</p>
 
-        <a href="#" [routerLink]="['detalhar-produto']" [queryParams]="{ id:item.produto.id }"
-            class="btn btn-primary">Comprar</a>
+        <button type="submit" (click)="detalhar(item)"
+            class="btn btn-primary">Comprar</button>
 
     </div>
 </div>

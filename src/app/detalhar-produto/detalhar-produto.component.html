@@ -1,8 +1,10 @@
 <div class="principal">
-    <div *ngFor="let img of this.lisimg">
-        <img [src]="img" alt="" height="100px" width="100px">
-    </div>
-    <p>{{this.produto?.produto?.nome}}</p>
-    <button type="submit" class="btn btn-primary">{{this.produto?.produto?.precoUni}}</button>
+    <ng-template ngbSlide *ngFor="let img of this.lisimg, let index=index">
+        <div> 
+            <img [src]="img" alt="" height="100px" width="100px">
+        </div>
+    </ng-template>
+    <h2>{{this.produto?.nome}}</h2>
+    <button type="submit" (click)="pagamentoProduto()" class="btn btn-primary">{{this.produto?.precoUni}}</button>
 </div>
 
